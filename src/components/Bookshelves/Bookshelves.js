@@ -1,6 +1,7 @@
 import React from 'react'
 import Bookshelf from './Bookshelf/Bookshelf'
 import Header from '../Header'
+import SearchButton from '../SearchButton'
 
 const Bookshelves = ({ books, changeShelf }) => {
 
@@ -20,6 +21,7 @@ const Bookshelves = ({ books, changeShelf }) => {
           </div>
         </div>
       </div>
+      <SearchButton />
     </div>
   )
 }

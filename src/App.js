@@ -28,22 +28,11 @@ const BooksApp = () => {
 
   return (
     <div className="app">
-  
-        <Route exact path='/' render={() => (
-          <Bookshelves books={books} changeShelf={changeShelf} />
-        )}/>
-
-        <Route path='/search' component={SearchPage} />
-  
-        <div className="open-search">
-          <Link 
-            to='/search'
-            className='open-search'
-          >
-            Open Search
-          </Link>
-        </div>
-        </div>
+      <Route exact path='/' render={() => (
+        <Bookshelves books={books} changeShelf={changeShelf} />
+      )}/>
+      <Route path='/search' component={SearchPage} />
+    </div>
   )
 }
 
