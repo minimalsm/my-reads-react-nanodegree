@@ -1,25 +1,17 @@
 import React from 'react'
 import Bookshelves from './Bookshelves'
+import Header from './Header'
 
-const ListBook = ({ books, setShowSearchPage }) => {
+const ListBook = ({ books, setShowSearchPage, changeShelf }) => {
   return (
     <div className="list-books">
-          <div className="list-books-title">
-            <h1>MyReads</h1>
-          </div>
-        
-          <div className="list-books-content">
-            <div>
+      <Header />
+      <Bookshelves changeShelf={changeShelf} books={books} />
 
-              <Bookshelves books={books} />
-             
-
-            </div>
-          </div>
-          <div className="open-search">
-            <button onClick={() => setShowSearchPage(true)}>Add a book</button>
-          </div>
-        </div>
+      <div className="open-search">
+        <button onClick={() => setShowSearchPage(true)}>Add a book</button>
+      </div>
+    </div>
   )
 }
 
