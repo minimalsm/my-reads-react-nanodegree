@@ -1,5 +1,6 @@
 import React from 'react'
 import Bookshelf from './Bookshelf/Bookshelf'
+import Header from '../Header'
 
 const Bookshelves = ({ books, changeShelf }) => {
 
@@ -8,12 +9,15 @@ const Bookshelves = ({ books, changeShelf }) => {
   const read = books.filter(book => book.shelf === 'read' )
 
   return (
-    <div className="list-books">
-      <div className="list-books-content">
-        <div>
-          <Bookshelf changeShelf={changeShelf} books={currentlyReading} status='Currently Reading' />
-          <Bookshelf changeShelf={changeShelf} books={wantToRead} status='Want to Read'/>
-          <Bookshelf changeShelf={changeShelf} books={read} status='Read' />
+    <div>
+    <Header />
+      <div className="list-books">
+        <div className="list-books-content">
+          <div>
+            <Bookshelf changeShelf={changeShelf} books={currentlyReading} status='Currently Reading' />
+            <Bookshelf changeShelf={changeShelf} books={wantToRead} status='Want to Read'/>
+            <Bookshelf changeShelf={changeShelf} books={read} status='Read' />
+          </div>
         </div>
       </div>
     </div>

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import * as BooksAPI from './BooksAPI'
+import { Route, Link } from 'react-router-dom'
 import Header from './components/Header'
 import SearchPage from './components/SearchPage'
 import './App.css'
 import Bookshelves from './components/Bookshelves/Bookshelves'
 
 const BooksApp = () => {
-  const [ showSearchPage, setShowSearchPage ] = useState(false)
+  const [ showSearchPage, setShowSearchPage ] = useState(true)
   const [ books, setBooks ] = useState([])
 
   useEffect(() => {
@@ -27,16 +28,22 @@ const BooksApp = () => {
 
   return (
     <div className="app">
-    <Header />
-      {showSearchPage ? (
-        <SearchPage showSearchPage={() => setShowSearchPage()} />
-      ) : (
-        <Bookshelves books={books} changeShelf={changeShelf} />
-        // <div className="open-search">
-        // <button onClick={() => setShowSearchPage(true)}>Add a book</button>
-        // </div>
-      )}
-    </div>
+  
+        <Route exact path='/' render={() => (
+          <Bookshelves books={books} changeShelf={changeShelf} />
+        )}/>
+
+        <Route path='/search' component={SearchPage} />
+  
+        <div className="open-search">
+          <Link 
+            to='/search'
+            className='open-search'
+          >
+            Open Search
+          </Link>
+        </div>
+        </div>
   )
 }
 

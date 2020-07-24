@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = () => (
   <div className="list-books-title">
-    <h1>MyReads</h1>
+    <h1>My Reads by Joshua</h1>
   </div>
 )
 
