@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import * as BooksAPI from './BooksAPI'
-import Book from './Book'
-import SearchPage from './SearchPage'
-import ListBook from './ListBook'
+import * as BooksAPI from './components/BooksAPI'
+import Book from './components/Book'
+import SearchPage from './components/SearchPage'
+import ListBook from './components/ListBook'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
 

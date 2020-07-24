@@ -7,11 +7,6 @@ const Bookshelves = ({ books, changeShelf }) => {
   const wantToRead = books.filter(book => book.shelf === 'wantToRead' )
   const read = books.filter(book => book.shelf === 'read' )
 
-
-  // const updateBookShelf = () => {
-
-  // }
-
   return (
     <div className="list-books-content">
       <div>
