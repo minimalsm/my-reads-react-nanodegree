@@ -1,31 +1,56 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Book from './Book'
 import { Link } from 'react-router-dom'
+import * as BooksAPI from '../BooksAPI'
 
 const SearchPage = () => {
+  const [ searchedBooks, setSearchedBooks ] = useState([])
+  const [ searchQuery, setSearchQuery ] = useState('') 
+
+  const searchBook = (query) => {
+    console.log('searchBook query: ', query)
+    BooksAPI
+      .search(query)
+      .then((books) => {
+        setSearchedBooks(books)
+      })
+      // .catch(error => {
+      //   console.log('ERROR', error)
+      //   setSearchedBooks([])
+      // })
+  }
+
+  const handleChange = (query) => {
+    setSearchQuery(query)
+    onBookSearch(query)
+  }
+
+  const onBookSearch = (searchQuery) => {
+    ((searchQuery) || (searchQuery !== '')) ? searchBook(searchQuery) : setSearchedBooks([])
+  }
 
   return (
     <div className="search-books">
       <div className="search-books-bar">
-        <Link 
-        to='/'
-        className="close-search"
-        >Close</Link>
-
+        <Link to='/' className="close-search">
+          Close
+        </Link>
         <div className="search-books-input-wrapper">
-          {/*
-          NOTES: The search from BooksAPI is limited to a particular set of search terms.
-          You can find these search terms here:
-          https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-
-          However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-          you don't find a specific author or title. Every search is limited by search terms.
-        */}
-          <input type="text" placeholder="Search by title or author"/>
-
+          <input type="text" placeholder="Search by title or author" value={searchQuery} onChange={({target}) => handleChange(target.value)}/>
         </div>
       </div>
       <div className="search-books-results">
-        <ol className="books-grid"></ol>
+        <ol className="books-grid">  
+        {
+          (searchedBooks && searchedBooks.length > 0) ?
+          searchedBooks.map((book) => (
+            <li key={book.id}>
+              <Book changeShelf={{}} book={book}/>
+            </li>
+          ))
+          : (<h3>Your search has returend no results</h3>)
+        }  
+        </ol>
       </div>
     </div>
   )
