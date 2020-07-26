@@ -12,12 +12,18 @@ const SearchPage = ({ changeShelf, addToBooks }) => {
     BooksAPI
       .search(query)
       .then((books) => {
-        setSearchedBooks(books)
+        const noneShelf = books.map((book) => {
+          return {
+            ...book,
+            shelf: 'none'
+          }
+        })
+        setSearchedBooks(noneShelf)
       })
-      // .catch(error => {
-      //   console.log('ERROR', error)
-      //   setSearchedBooks([])
-      // })
+      .catch(error => {
+        console.log('ERROR', error)
+        setSearchedBooks([])
+      })
   }
 
   const handleChange = (query) => {
