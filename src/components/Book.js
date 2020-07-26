@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Book = ({ book, changeShelf }) => {
+const Book = ({ book, changeShelf, addToBooks }) => {
 
   const thumbnail = book.imageLinks ? book.imageLinks.thumbnail : null
   const onChangeShelf = ({ target }) => {
@@ -11,7 +11,12 @@ const Book = ({ book, changeShelf }) => {
       shelf
     }
 
+    
     changeShelf(updatedBook, shelf)
+    if (addToBooks) {
+      console.log(updatedBook)
+      addToBooks(updatedBook)
+    }
   }
 
 

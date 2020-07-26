@@ -21,13 +21,17 @@ const BooksApp = () => {
     setBooks(books.map(book => (book.id === changedBook.id) ? changedBook : book))
   }
 
+  const addToBooks = (book) => {
+    setBooks(books.concat(book))
+  }
+
   return (
     <div className="app">
       <Route exact path='/' render={() => (
         <Bookshelves books={books} changeShelf={changeShelf} />
       )}/>
       <Route path='/search' render={() => (
-        <SearchPage books={books} />
+        <SearchPage books={books} changeShelf={changeShelf} addToBooks={addToBooks} />
       )}/>
     </div>
   )

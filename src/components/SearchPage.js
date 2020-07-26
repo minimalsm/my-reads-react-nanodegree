@@ -3,7 +3,7 @@ import Book from './Book'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '../BooksAPI'
 
-const SearchPage = () => {
+const SearchPage = ({ changeShelf, addToBooks }) => {
   const [ searchedBooks, setSearchedBooks ] = useState([])
   const [ searchQuery, setSearchQuery ] = useState('') 
 
@@ -45,7 +45,7 @@ const SearchPage = () => {
           (searchedBooks && searchedBooks.length > 0) ?
           searchedBooks.map((book) => (
             <li key={book.id}>
-              <Book changeShelf={{}} book={book}/>
+              <Book changeShelf={changeShelf} book={book} addToBooks={addToBooks} />
             </li>
           ))
           : (<h3>Your search has returend no results</h3>)
