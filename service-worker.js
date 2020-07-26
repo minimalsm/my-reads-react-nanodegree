@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/my-reads-react-nanodegree/precache-manifest.b15678da834c0a93d6d409361f45c71b.js"
+  "/my-reads-react-nanodegree/precache-manifest.160bbeed6876bb8ad3011d00c5078d8a.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7012986b82cf5af4a49297b99f8b5193",
+    "revision": "a5437b3aab4ee603832c458f9c6964ee",
     "url": "/my-reads-react-nanodegree/index.html"
   },
   {
-    "revision": "d1a8a7cc3b3d8d28e9c6",
+    "revision": "fc4c46d17aa170c2b7bf",
     "url": "/my-reads-react-nanodegree/static/css/main.8c5423b4.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/my-reads-react-nanodegree/static/js/2.b651d4c9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "d1a8a7cc3b3d8d28e9c6",
-    "url": "/my-reads-react-nanodegree/static/js/main.fe699beb.chunk.js"
+    "revision": "fc4c46d17aa170c2b7bf",
+    "url": "/my-reads-react-nanodegree/static/js/main.c1d9964e.chunk.js"
   },
   {
     "revision": "05ce3640f218341586b8",
